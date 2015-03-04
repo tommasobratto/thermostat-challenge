@@ -1,14 +1,16 @@
-$(document).ready( function () { 
-
   var thermostat = new Thermostat();
 
-  $('#thermostat').text( function() {
-    thermostat.temperature;
-  });
+  $(document).ready(function () {
 
-  $('.increase temperature').click(function() {
-    thermostat.increaseTemperature();
-    $('#thermostat').text()
+  $('#thermostat').text( thermostat.temperature);
+  $('.increase').click(function() {
+    thermostat.increaseTemperature()
+    thermostat.maximumTemperatureCheck()
+  $('#thermostat').text(thermostat.temperature);
+  $('.decrease').click(function() {
+    thermostat.decreaseTemperature()
+    thermostat.minimumTemperatureCheck()
+  $('#thermostat').text(thermostat.temperature);
+    });
   });
-
 });
