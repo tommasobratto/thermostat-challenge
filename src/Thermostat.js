@@ -17,6 +17,7 @@ Thermostat.prototype.decreaseTemperature = function() {
 Thermostat.prototype.minimumTemperatureCheck = function() {
   if(this.temperature < this.MINIMUM_TEMPERATURE)
     this.temperature = this.MINIMUM_TEMPERATURE;
+    this.powerUsage();
 };
 
 Thermostat.prototype.setMaximumTemperature = function() {
@@ -28,6 +29,7 @@ Thermostat.prototype.setMaximumTemperature = function() {
 Thermostat.prototype.maximumTemperatureCheck = function() {
   if(this.temperature > this.maximumTemperature)
     this.temperature = this.maximumTemperature;
+    this.powerUsage();
 };
 
 Thermostat.prototype.powerSavingOn = function(setMaximumTemperature) {
@@ -38,10 +40,11 @@ Thermostat.prototype.powerSavingOn = function(setMaximumTemperature) {
 Thermostat.prototype.powerSavingOff = function(setMaximumTemperature) {
   this.powerSaving = false;
   this.setMaximumTemperature();
-} ;
+};
 
 Thermostat.prototype.resetTemperature = function() {
   this.temperature = 20
+  this.powerUsage();
 };
 
 Thermostat.prototype.powerUsage = function() {
