@@ -23,7 +23,7 @@ Thermostat.prototype.minimumTemperatureCheck = function() {
 Thermostat.prototype.setMaximumTemperature = function() {
   if(this.powerSaving === true) this.maximumTemperature = 25;
     else 
-    this.maximumTemperature = 32;
+  this.maximumTemperature = 32;
 };
 
 Thermostat.prototype.maximumTemperatureCheck = function() {
