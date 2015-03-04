@@ -19,7 +19,13 @@ describe("thermostat", function() {
   });
 
   it('cannot go below 10 degrees', function() {
-    thermostat.decreaseTemperature();
+    var times = 11;
+    var num = 0;
+    while ( num < times ) {
+      num += 1;
+      thermostat.decreaseTemperature(); 
+    }
+    expect(thermostat.minimumTemperature()).toEqual(true)
     expect(thermostat.temperature).toEqual(10)
   });
 
