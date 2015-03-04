@@ -22,7 +22,7 @@ describe("thermostat", function() {
   it('cannot go below 10 degrees', function() {
     helper.decreaseTemperatureTimes(11);
 
-    expect(thermostat.minimumTemperature()).toEqual(true)
+    expect(thermostat.minimumTemperatureCheck()).toEqual(true)
     expect(thermostat.temperature).toEqual(10)
   });
 
@@ -45,7 +45,7 @@ describe("thermostat", function() {
     helper.increaseTemperatureTimes(13);
 
     thermostat.maximumTemperatureCheck();
-    expect(thermostat.maximumTemperature).toEqual(32)
+    expect(thermostat.maximumTemperature.toEqual(32)
     expect(thermostat.temperature).toEqual(32)
   });
 });
