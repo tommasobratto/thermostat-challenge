@@ -55,4 +55,9 @@ describe("thermostat", function() {
     expect(thermostat.temperature).toEqual(20);
   });
 
+  it('should be in low power usage mode under 18 degrees', function() {
+    helper.decreaseTemperatureTimes(3)
+    expect(thermostat.temperature).toEqual(17)
+    expect(thermostat.powerUsage).toEqual("low usage")
+  });
 });
