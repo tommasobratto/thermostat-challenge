@@ -6,24 +6,24 @@ describe("thermostat", function() {
   });
 
   it('has a starting temperature of 20 degrees', function() {
-    expect(thermostat.temperature).toEqual(20)
+    expect(thermostat.temperature).toEqual(20);
   });
 
   it('can have its temperature increased', function() {
     thermostat.increaseTemperature();
-    expect(thermostat.temperature).toEqual(21)
+    expect(thermostat.temperature).toEqual(21);
   });
 
   it('can have its temperature decreased', function() {
     thermostat.decreaseTemperature();
-    expect(thermostat.temperature).toEqual(19)
+    expect(thermostat.temperature).toEqual(19);
   });
 
   it('cannot go below 10 degrees', function() {
     helper.decreaseTemperatureTimes(11);
 
-    expect(thermostat.minimumTemperatureCheck()).toEqual(true)
-    expect(thermostat.temperature).toEqual(10)
+    thermostat.minimumTemperatureCheck();
+    expect(thermostat.temperature).toEqual(10);
   });
 
   it('should start with powerSaving(tm) switched on', function() {
@@ -34,8 +34,8 @@ describe("thermostat", function() {
     helper.increaseTemperatureTimes(6);
 
     thermostat.maximumTemperatureCheck();
-    expect(thermostat.maximumTemperature).toEqual(25)
-    expect(thermostat.temperature).toEqual(25)
+    expect(thermostat.maximumTemperature).toEqual(25);
+    expect(thermostat.temperature).toEqual(25);
 
   });
 
@@ -45,7 +45,8 @@ describe("thermostat", function() {
     helper.increaseTemperatureTimes(13);
 
     thermostat.maximumTemperatureCheck();
-    expect(thermostat.maximumTemperature.toEqual(32)
-    expect(thermostat.temperature).toEqual(32)
+    expect(thermostat.maximumTemperature).toEqual(32);
+    expect(thermostat.temperature).toEqual(32);
   });
+
 });
