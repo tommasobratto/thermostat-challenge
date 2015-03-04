@@ -66,4 +66,11 @@ describe("thermostat", function() {
     expect(thermostat.temperature).toEqual(24)
     expect(thermostat.powerUsage()).toEqual("medium usage")
   });
+
+  it('should be in high power usage mode over 25 degrees', function() { 
+    helper.increaseTemperatureTimes(6)
+    expect(thermostat.temperature).toEqual(26)
+    expect(thermostat.powerUsage()).toEqual('high usage')
+  });
+
 });
