@@ -2,6 +2,7 @@ describe("thermostat", function() {
 
   beforeEach(function() {
     thermostat = new Thermostat();
+    helper = new Helper();
   });
 
   it('has a starting temperature of 20 degrees', function() {
@@ -19,12 +20,8 @@ describe("thermostat", function() {
   });
 
   it('cannot go below 10 degrees', function() {
-    var times = 11;
-    var numTimesRun = 0;
-    while ( numTimesRun < times ) {
-      numTimesRun += 1;
-      thermostat.decreaseTemperature(); 
-    }
+    helper.decreaseTemperatureTimes(11);
+
     expect(thermostat.minimumTemperature()).toEqual(true)
     expect(thermostat.temperature).toEqual(10)
   });
@@ -34,12 +31,7 @@ describe("thermostat", function() {
   });
 
   it('has a maximum temperature of 25 degrees if powerSaving(tm) is switched on', function() {    
-    var times = 6;
-    var numTimesRun = 0;
-    while ( numTimesRun < times ) {
-      numTimesRun += 1;
-      thermostat.increaseTemperature(); 
-    }  
+    helper.increaseTemperatureTimes(6);
 
     thermostat.maximumTemperatureCheck();
     expect(thermostat.maximumTemperature).toEqual(25)
@@ -48,14 +40,9 @@ describe("thermostat", function() {
   });
 
   it('has a maximum temperature of 32 degrees if powerSaving(tm) is switched off', function() {
-    thermostat.powerSavingOff()
+    thermostat.powerSavingOff();
 
-    var times = 13;
-    var numTimesRun = 0;
-    while ( numTimesRun < times ) {
-      numTimesRun += 1;
-      thermostat.increaseTemperature(); 
-    }  
+    helper.increaseTemperatureTimes(13);
 
     thermostat.maximumTemperatureCheck();
     expect(thermostat.maximumTemperature).toEqual(32)
