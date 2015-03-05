@@ -6,7 +6,6 @@
   
   $('.increase').click(function() {
     thermostat.increaseTemperature();
-    thermostat.maximumTemperatureCheck();
     $('#thermostat').text(thermostat.temperature);
     
     $('#thermostat').text(function() { 
@@ -29,7 +28,6 @@
   
   $('.decrease').click(function() {
     thermostat.decreaseTemperature();
-    thermostat.minimumTemperatureCheck();
     $('#thermostat').text(thermostat.temperature);
 
     $('#thermostat').text(function() { 
@@ -74,13 +72,11 @@
 
   $('.powerSavingOn').click(function() { 
     thermostat.powerSavingOn();
-    thermostat.maximumTemperatureCheck();
     $('#thermostat').text(thermostat.temperature);
   });
 
   $('.powerSavingOff').click(function() {
     thermostat.powerSavingOff();
-    thermostat.maximumTemperatureCheck();
     $('#thermostat').text(thermostat.temperature);
   });
 

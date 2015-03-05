@@ -51,26 +51,31 @@ describe("thermostat", function() {
 
   it('can be reset to 20 degrees', function() {
     helper.increaseTemperatureTimes(4);
+    
     thermostat.resetTemperature();
     expect(thermostat.temperature).toEqual(20);
   });
 
   it('should be in low power usage mode under 18 degrees', function() {
-    helper.decreaseTemperatureTimes(3)
-    expect(thermostat.temperature).toEqual(17)
-    expect(thermostat.powerUsage()).toEqual("low usage")
+    helper.decreaseTemperatureTimes(3);
+
+    expect(thermostat.temperature).toEqual(17);
+    expect(thermostat.powerUsage()).toEqual("low usage");
   });
 
   it('should be in medium power usage mode under 25 degrees', function() {
-    helper.increaseTemperatureTimes(4)
-    expect(thermostat.temperature).toEqual(24)
-    expect(thermostat.powerUsage()).toEqual("medium usage")
+    helper.increaseTemperatureTimes(4);
+
+    expect(thermostat.temperature).toEqual(24);
+    expect(thermostat.powerUsage()).toEqual("medium usage");
   });
 
   it('should be in high power usage mode over 25 degrees', function() { 
-    helper.increaseTemperatureTimes(6)
-    expect(thermostat.temperature).toEqual(26)
-    expect(thermostat.powerUsage()).toEqual('high usage')
+    thermostat.powerSavingOff();
+    helper.increaseTemperatureTimes(6); 
+
+    expect(thermostat.temperature).toEqual(26);
+    expect(thermostat.powerUsage()).toEqual('high usage');
   });
 
 });
