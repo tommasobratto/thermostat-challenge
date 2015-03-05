@@ -2,100 +2,53 @@
 
   $(document).ready(function() {
 
-  $('#thermostat').text(thermostat.temperature);
-  
+  $('#thermostat').text(thermostat.temperature); 
+    changeColor();
+
   $('.increase').click(function() {
     thermostat.increaseTemperature();
-    $('#thermostat').text(thermostat.temperature);
-    
-    $('#thermostat').text(function() { 
-
-    if(thermostat.powerUsage() === "low usage")
-    $('#thermostat').css({color: "green"});
-    thermostat.temperature;
-
-    if(thermostat.powerUsage() === "medium usage")
-    $('#thermostat').css({color: "yellow"});
-    thermostat.temperature;
-
-    if (thermostat.powerUsage() === "high usage")
-    $('#thermostat').css({color: "red"});
-    thermostat.temperature;
-
-    });
-
+    changeColor();
   });
   
   $('.decrease').click(function() {
     thermostat.decreaseTemperature();
-    $('#thermostat').text(thermostat.temperature);
-
-    $('#thermostat').text(function() { 
-
-    if(thermostat.powerUsage() === "low usage")
-    $('#thermostat').css({color: "green"});
-    thermostat.temperature;
-
-    if(thermostat.powerUsage() === "medium usage")
-    $('#thermostat').css({color: "yellow"});
-    thermostat.temperature;
-
-    if (thermostat.powerUsage() === "high usage")
-    $('#thermostat').css({color: "red"});
-    thermostat.temperature;
-
-    });
-
+    changeColor();
   });
 
   $('.reset').click(function() { 
     thermostat.resetTemperature();
-    $('#thermostat').text(thermostat.temperature);
-
-    $('#thermostat').text(function() { 
-
-    if(thermostat.powerUsage() === "low usage")
-    $('#thermostat').css({color: "green"});
-    thermostat.temperature;
-
-    if(thermostat.powerUsage() === "medium usage")
-    $('#thermostat').css({color: "yellow"});
-    thermostat.temperature;
-
-    if (thermostat.powerUsage() === "high usage")
-    $('#thermostat').css({color: "red"});
-    thermostat.temperature;
-
-    });
-
+    changeColor();
   });
 
   $('.powerSavingOn').click(function() { 
     thermostat.powerSavingOn();
-    $('#thermostat').text(thermostat.temperature);
+    changeColor();
   });
 
   $('.powerSavingOff').click(function() {
     thermostat.powerSavingOff();
-    $('#thermostat').text(thermostat.temperature);
-  });
-
-  // how we can change the color and then call the method inside another one?
-
-    $('#thermostat').text(function() { 
-
-    if(thermostat.powerUsage() === "low usage")
-    $('#thermostat').css({color: "green"});
-    thermostat.temperature;
-
-    if(thermostat.powerUsage() === "medium usage")
-    $('#thermostat').css({color: "yellow"});
-    thermostat.temperature;
-
-    if (thermostat.powerUsage() === "high usage")
-    $('#thermostat').css({color: "red"});
-    thermostat.temperature;
-
+    changeColor();
   });
     
 });
+
+
+
+function changeColor() {
+
+  $('#thermostat').text(function() { 
+
+    if(thermostat.powerUsage() === "low usage")
+    $('#thermostat').css({color: "green"});
+
+    if(thermostat.powerUsage() === "medium usage")
+    $('#thermostat').css({color: "yellow"});
+
+    if (thermostat.powerUsage() === "high usage")
+    $('#thermostat').css({color: "red"});
+
+    $('#thermostat').text(thermostat.temperature); 
+
+  });
+
+};
